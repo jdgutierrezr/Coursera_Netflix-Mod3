@@ -1,0 +1,43 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>289</x><y>344</y><w>328</w><h>224</h></coordinates><panel_attributes>Contenido
+--
+- titulo: String
+- genero: String
+- creador: String
+- duracion: int
+- visto: boolean
+--
++ Contenido ( )
++ Contenido ( String titulo, String creador )
++ Contenido ( String titulo, String genero, String creador, int duracion ) 
++ getTitulo ( ): String
++ getGenero ( ): String
++ getCreador ( ): String
++ getDuracion ( ): int
++ setTitulo ( String titulo ): void
++ setGenero ( String genero ): void
++ setCreador ( String creador ): void
++ setDuracion ( int duracion ): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>481</x><y>680</y><w>424</w><h>112</h></coordinates><panel_attributes>Pelicula
+--
+- año: int
+--
++ Pelicula ( )
++ Pelicula ( String titulo, String creador )
++ Pelicula ( String titulo, String genero, String creador, int año, int duracion ) 
++ getAño ( ): int
++ setAño ( int año ): void
+/+ toString ( ): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>9</x><y>680</y><w>424</w><h>112</h></coordinates><panel_attributes>Serie
+--
+- numeroTemporadas: int
+--
++ Serie ( )
++ Serie ( String titulo, String creador )
++ Serie ( String titulo, String genero, String creador, int numeroTemporadas, int duracion ) 
++ getNumeroTemporadas( ): int
++ setNumeroTemporadas( int numeroTemporadas): void
+/+ toString ( ): String/</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>449</x><y>560</y><w>24</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>209</x><y>608</y><w>496</w><h>88</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;90;10;20;600;20;600;90</additional_attributes></element><element><id>Relation</id><coordinates><x>609</x><y>456</y><w>208</w><h>24</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;240;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>801</x><y>424</y><w>328</w><h>80</h></coordinates><panel_attributes>IVisualizable
+--
+
+--
++ marcarVisto ( ): void
++ esVisto ( ): boolean
++ tiempoVisto ( ): int</panel_attributes><additional_attributes></additional_attributes></element></diagram>
