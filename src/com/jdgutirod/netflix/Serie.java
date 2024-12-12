@@ -22,7 +22,15 @@ public class Serie extends Contenido
 	public Serie( String titulo, String genero, String creador, int numeroTemporadas, int duracion )
 	{
 		super( titulo, genero, creador, duracion );
-		this.numeroTemporadas = numeroTemporadas;
+		
+		if ( numeroTemporadas <= 0 ) {
+			this.numeroTemporadas = 1;
+			
+			throw new IllegalArgumentException( "La serie debe tener al menos una temporada." );
+		}
+		else {
+			this.numeroTemporadas = numeroTemporadas;
+		}
 	}
 	
 	// GETTERS AND SETTERS

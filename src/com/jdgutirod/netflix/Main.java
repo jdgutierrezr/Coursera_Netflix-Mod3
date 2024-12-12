@@ -1,34 +1,58 @@
 package com.jdgutirod.netflix;
 
+import java.util.ArrayList;
+
 public class Main 
 {
 	public static void main( String[] args )
 	{
-		Pelicula[] peliculas = new Pelicula[5];
-		Serie[] series = new Serie[5];
+		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>( );
+		ArrayList<Serie> series = new ArrayList<Serie>( );
 		
-		peliculas[0] = new Pelicula( );
-		peliculas[1] = new Pelicula( "Halloween", "Terror", "Adam Sandler", 1998, 106 );
-		peliculas[2] = new Pelicula( "Vacaciones tranquilas", "Raúl Veraniego" );
-		peliculas[3] = new Pelicula( "Locos de amor", "Romance", "Victor Aristizabal", 2021, 98 );
-		peliculas[4] = new Pelicula( "Caparazón sin dientes", "Comedia", "Radamel Falcao", 2014, 151 );
+		try 
+		{
+			peliculas.add( new Pelicula() );
+			peliculas.add( new Pelicula("Halloween", "Terror", "Adam Sandler", 1998, 106) );
+			peliculas.add( new Pelicula("Vacaciones tranquilas", "Raúl Veraniego") );
+			peliculas.add( new Pelicula("Locos de amor", "Romance", "Victor Aristizabal", 2021, 98) );
+			peliculas.add( new Pelicula("Caparazón sin dientes", "Comedia", "Radamel Falcao", 2014, 151) );
+				
+			series.add( new Serie("Los valientes", "Victor Aristizabal") );
+			series.add( new Serie("El templo perdido", "Aventura", "Adam Sandler", 10, 1080) );
+			series.add( new Serie() );
+			series.add( new Serie("Ella y yo", "Romance", "Pedro Sarmiento", 2, 106) );
+			series.add( new Serie("Lo que ganamos los pobres", "Comedia", "James Rodriguez", 3, 240) );
+			series.add( new Serie("Buscandote", "Tragedia", "Andres Lopez", 40, 240) );
+		} 
+		catch ( Exception e ) {
+			System.out.println( "Error al manipular las listas." );
+		}
 		
-		series[0] = new Serie( "Los valientes", "Victor Aristizabal" );
-		series[1] = new Serie( "El templo perdido", "Aventura", "Adam Sandler", 10, 1080 );
-		series[2] = new Serie( );
-		series[3] = new Serie( "Ella y yo", "Romance", "Pedro Sarmiento", 2, 106 );
-		series[4] = new Serie( "Lo que ganamos los pobres", "Comedia", "James Rodriguez", 3, 240 );
-
+		try 
+		{
+			peliculas.add( new Pelicula("Pelicula errónea", "Error", "Desconocido", -485, 1) );
+		}
+		catch ( IllegalArgumentException e ) {
+			System.out.println( e.getMessage() );
+		}
 		
-		peliculas[1].marcarVisto( );
-		peliculas[2].marcarVisto( );
-		peliculas[3].marcarVisto( );
-		series[0].marcarVisto( );
-		series[4].marcarVisto( );
+		try 
+		{
+			series.add( new Serie("Serie errónea", "Error", "Desconocido", -8, 1) );
+		}
+		catch ( IllegalArgumentException e ) {
+			System.out.println( e.getMessage() );
+		}
+		
+		peliculas.get( 1 ).marcarVisto( );
+		peliculas.get( 2 ).marcarVisto( );
+		peliculas.get( 3 ).marcarVisto( );
+		series.get( 0 ).marcarVisto( );
+		series.get( 4 ).marcarVisto( );
 		
 		
-		Serie serieMasTemporadaSerie = series[0];
-		Pelicula peliculaMasRecientePelicula = peliculas[0];
+		Serie serieMasTemporadas = series.get( 0 );
+		Pelicula peliculaMasReciente = peliculas.get( 0 );
 		
 		System.out.println( "PELÍCULAS VISTAS..." );
 		for ( Pelicula pelicula : peliculas )
@@ -37,8 +61,8 @@ public class Main
 				System.out.println( "   + " + pelicula.getTitulo() + ": Visto por " + pelicula.tiempoVisto() + " minutos." );
 			}
 			
-			if ( pelicula.getAño() > peliculaMasRecientePelicula.getAño() ) {
-				peliculaMasRecientePelicula = pelicula;
+			if ( pelicula.getAño() > peliculaMasReciente.getAño() ) {
+				peliculaMasReciente = pelicula;
 			}
 		}
 		
@@ -49,15 +73,15 @@ public class Main
 				System.out.println( "   + " + serie.getTitulo() + ": Visto por " + serie.tiempoVisto() + " minutos." );
 			}
 			
-			if ( serie.getNumeroTemporadas() > serieMasTemporadaSerie.getNumeroTemporadas() ) {
-				serieMasTemporadaSerie = serie;
+			if ( serie.getNumeroTemporadas() > serieMasTemporadas.getNumeroTemporadas() ) {
+				serieMasTemporadas = serie;
 			}
 		}
 		
 		
 		System.out.println( "\n**********PELÍCULA MÁS RECIENTE**********" );
-		System.out.println( peliculaMasRecientePelicula.toString() );
+		System.out.println( peliculaMasReciente.toString() );
 		System.out.println( "**********SERIE CON MÁS TEMPORADAS**********" );
-		System.out.println( serieMasTemporadaSerie.toString() );
+		System.out.println( serieMasTemporadas.toString() );
 	}
 }

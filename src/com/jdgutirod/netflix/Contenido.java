@@ -32,12 +32,17 @@ public class Contenido implements IVisualizable
 		
 	public Contenido( String titulo, String genero, String creador, int duracion )
 	{
-		this.titulo = titulo;
-		this.genero = genero;
-		this.creador = creador;
-		this.duracion = duracion;
-		
-		this.visto = false;
+		if ( duracion < 0 ) {
+			throw new IllegalArgumentException( "La duración no puede ser negativa." );
+		}
+		else {
+			this.titulo = titulo;
+			this.genero = genero;
+			this.creador = creador;
+			this.duracion = duracion;
+			
+			this.visto = false;
+		}
 	}
 	
 	

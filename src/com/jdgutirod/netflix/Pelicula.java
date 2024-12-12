@@ -22,7 +22,15 @@ public class Pelicula extends Contenido
 	public Pelicula( String titulo, String genero, String creador, int año, int duracion )
 	{
 		super( titulo, genero, creador, duracion );
-		this.año = año;
+		
+		if ( año < 0 ) {
+			this.año = 0;
+			
+			throw new IllegalArgumentException( "El año no puede ser negativo." );
+		}
+		else {
+			this.año = año;
+		}
 	}
 	
 	
