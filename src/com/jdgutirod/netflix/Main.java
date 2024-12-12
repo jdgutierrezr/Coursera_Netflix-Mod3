@@ -44,11 +44,19 @@ public class Main
 			System.out.println( e.getMessage() );
 		}
 		
-		peliculas.get( 1 ).marcarVisto( );
-		peliculas.get( 2 ).marcarVisto( );
-		peliculas.get( 3 ).marcarVisto( );
-		series.get( 0 ).marcarVisto( );
-		series.get( 4 ).marcarVisto( );
+		try 
+		{
+			peliculas.get( 1 ).marcarVisto( );
+			peliculas.get( 2 ).marcarVisto( );
+			peliculas.get( 3 ).marcarVisto( );
+			series.get( 0 ).marcarVisto( );
+			series.get( 4 ).marcarVisto( );
+			
+			series.get( 100 ).marcarVisto( );
+		}
+		catch( IndexOutOfBoundsException e ) {
+			System.out.println( "El elemento no se encuentra en la lista." );
+		}
 		
 		
 		Serie serieMasTemporadas = series.get( 0 );
